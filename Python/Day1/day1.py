@@ -1,7 +1,8 @@
+import Python.HelperFile as Helper
+
+
 def part_one():
-    f = open('PartOneInput.txt', 'r')
-    content = f.read()
-    elves = content.split("\n\n")
+    elves, file = Helper.read_and_split_text('PartOneInput.txt', "\n\n")
     elf_calories = []
 
     for elf in elves:
@@ -12,7 +13,7 @@ def part_one():
     max_calories_carried = max(elf_calories)
     print(f"Max amount of calories: {max_calories_carried}")
 
-    f.close()
+    file.close()
 
     return elf_calories
 

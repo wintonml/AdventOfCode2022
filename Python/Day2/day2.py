@@ -1,3 +1,4 @@
+import Python.HelperFile as Helper
 from enum import Enum
 
 
@@ -43,7 +44,7 @@ def part_two():
 
 
 def complete_challenge(challenge_number):
-    games = get_games()
+    games, files = Helper.read_and_split_text("EncryptedStrategyGuide.txt",'\n')
 
     elf_one_points = 0
     elf_two_points = 0
@@ -65,11 +66,7 @@ def complete_challenge(challenge_number):
     print(f"Elf one: {elf_one_points}")
     print(f"Elf two: {elf_two_points}")
 
-
-def get_games():
-    f = open('EncryptedStrategyGuide.txt', 'r')
-    content = f.read()
-    return content.split("\n")
+    files.close()
 
 
 def find_player_two_shape(player_one_value, game_result):
